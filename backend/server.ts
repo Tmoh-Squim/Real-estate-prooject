@@ -15,8 +15,9 @@ app.use(express.json());
 app.use(cors({
     origin:[
         "http://localhost:5173",
-        "https://squim-real-estate.vercel.app/"
-    ]
+        "https://squim-real-estate.vercel.app"
+    ],
+    credentials:true
     
 }));
 //app.use(compression())
