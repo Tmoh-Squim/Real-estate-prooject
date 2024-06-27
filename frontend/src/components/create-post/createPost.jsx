@@ -19,6 +19,8 @@ const CreatePost = () => {
     price: "",
     type: "",
     property: "",
+    petPolicy:"",
+    utilityPolicy:"",
     school: "",
     busStation: "",
   });
@@ -87,7 +89,7 @@ const CreatePost = () => {
 
   return (
     <div className="createPost">
-      <h1>Create post</h1>
+      <h1>Add New Post</h1>
 
       <div className="input-placeholder">
         <input
@@ -199,6 +201,19 @@ const CreatePost = () => {
           <option value="House">House</option>
           <option value="Condo">Condo</option>
           <option value="Land">Land</option>
+        </select>
+      </div>
+      <div className="input-placeholder">
+        <select name="petPolicy" id="petPolicy" onChange={handleChange}>
+          <option value="">Choose pet policy</option>
+          <option value="Allowed">Allowed</option>
+          <option value="Not Allowed">Not Allowed</option>
+        </select>
+        <select name="utilityPolicy" id="utilityPolicy" onChange={handleChange}>
+          <option value="">Choose utility policy</option>
+          <option value="Owner is responsible">Owner is responsible</option>
+          <option value="Tenant is responsible">Tenant is responsible</option>
+          <option value="Shared">Shared</option>
         </select>
       </div>
 

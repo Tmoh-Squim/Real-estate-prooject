@@ -45,7 +45,7 @@ function Card({ item,icon }) {
          onClick={()=>handleNavigate(item)}
         className="imageContainer"
       >
-        <img src={`${Server}/${item?.images[0]}`} alt="" />
+        <img src={`${item?.images[0]}`} alt="" />
       </Link>
       <div className="textContainer">
         <h2 className="title">

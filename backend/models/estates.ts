@@ -41,6 +41,12 @@ const estateSchema = new mongoose.Schema({
     nearbyPlaces:{
         type:Object
     },
+    petPolicy:{
+        type:String
+    },
+    utilityPolicy:{
+        type:String
+    },
     type:{
         type:String,
         require:true

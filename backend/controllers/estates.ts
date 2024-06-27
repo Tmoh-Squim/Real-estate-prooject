@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from "express";
 import estateModel from "../models/estates";
-
+import cloudinary from "../utils/cloudinary";
 export const createEstate = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const { title, bedroom, price, description, address, latitude, longitude, size, city, school, restrant, busStation, bathroom,type,property } = req.body;
+        const { title, bedroom, price, description, address,petPolicy,utilityPolicy, latitude, longitude, size, city, school, restrant, busStation, bathroom,type,property } = req.body;
         const id = req.params.id;
 
         // Validate the input
@@ -14,10 +14,10 @@ export const createEstate = async (req: Request, res: Response, next: NextFuncti
             });
         }
 
-        const files = req.files as { [fieldname: string]: Express.Multer.File[] } | Express.Multer.File[] | undefined;
+        const files = req.files as { [fieldname: string]: Express.Multer.File[] } | Express.Multer.File[] | undefined | any;
 
         let imageUrls: string[] = [];
-        if (files) {
+       /* if (files) {
             if (Array.isArray(files)) {
                 imageUrls = files.map((file) => `${file.filename}`);
             } else {
@@ -26,15 +26,16 @@ export const createEstate = async (req: Request, res: Response, next: NextFuncti
                     imageUrls = fileArray.map((file) => `${file.filename}`);
                 }
             }
-        }
+        } */
 
         // const imageUrls = [];
-        // for (const file of files) {
-        //   // Upload each image file to Cloudinary
-        //   const result = await cloudinary.uploader.upload(file.path);
-        //   const urls = result.secure_url
-        //   imageUrls.push(urls);
-        // }
+       if(files){
+        for (const file of files) {
+            const result = await cloudinary.v2.uploader.upload(file.path);
+            const urls = result.secure_url
+            imageUrls.push(urls);
+          }
+       }
 
         const places = {
             school,
@@ -48,6 +49,8 @@ export const createEstate = async (req: Request, res: Response, next: NextFuncti
             city,
             latitude,
             longitude,
+            petPolicy,
+            utilityPolicy,
             size,
             price,
             bathroom,
@@ -57,7 +60,7 @@ export const createEstate = async (req: Request, res: Response, next: NextFuncti
             type,
             nearbyPlaces: places,
             description,
-            images: imageUrls // Assuming you want to store image URLs in the document
+            images: imageUrls
         });
 
         await newEstate.save();
