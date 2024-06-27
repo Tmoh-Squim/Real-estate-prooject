@@ -15,7 +15,7 @@ const httpServer = createServer(app);
 // Initialize Socket.IO server
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: "https://squim-real-estate.vercel.app/",
     methods: ["GET", "POST"]
   }
 });
