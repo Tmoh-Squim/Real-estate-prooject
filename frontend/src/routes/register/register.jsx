@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"; 
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { Server_Url } from "../../server";
 
 function Register() {
   const [loading, setLoading] = useState(false);
@@ -27,7 +28,7 @@ function Register() {
     try {
       setLoading(true);
       const response = await axios.post(
-        "http://localhost:2021/api/auth/create-user",
+        `${Server_Url}/auth/create-user`,
         { username, password, email, idNum, phone,name }
       );
       if (response.data.success) {

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
+import { Server_Url } from "../../server";
 function Login() {
   const [loading, setLoading] = useState(false);
   const {user} = useSelector((state)=>state.user);
@@ -16,7 +17,7 @@ function Login() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:2021/api/auth/login",
+        `${Server_Url}/auth/login`,
         { username, password }
       );
       if(response.data.success){
