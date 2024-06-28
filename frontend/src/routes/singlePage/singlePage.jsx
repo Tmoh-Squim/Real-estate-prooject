@@ -83,21 +83,21 @@ function SinglePage() {
               <img src="/utility.png" alt="" />
               <div className="featureText">
                 <span>Utilities</span>
-                <p>Renter is responsible</p>
+                <p> {estate?.utilityPolicy || 'Renter is responsible'}</p>
               </div>
             </div>
             <div className="feature">
               <img src="/pet.png" alt="" />
               <div className="featureText">
                 <span>Pet Policy</span>
-                <p>Pets Allowed</p>
+                <p>{estate?.petPolicy || 'Pets Allowed'}</p>
               </div>
             </div>
             <div className="feature">
               <img src="/fee.png" alt="" />
               <div className="featureText">
                 <span>Property Fees</span>
-                <p>Must have 3x the rent in total household income</p>
+                <p>{estate?.feesPolicy || 'Not specified'}</p>
               </div>
             </div>
           </div>
@@ -136,7 +136,7 @@ function SinglePage() {
               <img src="/fee.png" alt="" />
               <div className="featureText">
                 <span>Restaurant</span>
-                <p>200m away</p>
+                <p>{estate?.restrant || 200}m away</p>
               </div>
             </div>
           </div>

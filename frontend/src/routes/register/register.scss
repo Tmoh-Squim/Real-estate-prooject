@@ -1,3 +1,5 @@
+@import "../../responsive.scss";
+
 .register {
   height: 100%;
   display: flex;
@@ -59,4 +61,35 @@
       width: 100%;
     }
   }
+}
+
+
+@include sm{
+  .register{
+    .formContainer {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+  
+        input{
+          padding: 10px;
+          border: 1px solid gray;
+          border-radius: 5px;
+          width: 100%;
+        }
+      }
+    }
+    .imgContainer {
+      display: none;
+    }
+    
+  }
+  
 }

@@ -36,10 +36,10 @@ function Navbar() {
           </div>
         ) : (
           <>
-            <a href="/login" className="login">Sign in</a>
-            <a href="/register" className="register">
+            <Link to="/login" className="login">Sign in</Link>
+            <Link to="/register" className="register">
               Sign up
-            </a>
+            </Link>
           </>
         )}
         <div className="menuIcon">
@@ -55,7 +55,13 @@ function Navbar() {
           <a href="/about">About</a>
           <a href="/contact-us">Contact</a>
           <a href="/agents">Agents</a>
-          <a href="/login">Sign in</a>
+          {
+            user?.user ? (
+              <a href="/profile">Profile</a>
+            ):(
+              <a href="/login">Sign in</a>
+            )
+          }
         </div>
       </div>
     </nav>

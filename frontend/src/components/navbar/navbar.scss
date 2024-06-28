@@ -18,12 +18,20 @@ nav {
       scale: 1.05;
     }
   }
-
+  @include sm{
+    .left{
+     width: max-content;
+    }
+    .register{
+      display: none;
+    }
+   }
   .left {
     flex: 2.5;
     display: flex;
     align-items: center;
     gap: 50px;
+    
 
     .logo {
       font-weight: bold;
@@ -114,10 +122,12 @@ nav {
       background-color: #fece51;
       height: max-content;
       z-index: 50;
+      width: max-content;
     }
     .login{
       z-index: 50;
       height: max-content;
+      width: max-content;
     }
 
     .menuIcon {
@@ -144,7 +154,7 @@ nav {
       height: 100vh;
       width: 50%;
       transition: all 1s ease;
-      display: flex;
+      display: none;
       flex-direction: column;
       align-items: center;
       justify-content: center;
@@ -152,6 +162,8 @@ nav {
 
       &.active {
         right: 0;
+        display: flex;
+        transition: all 1s ease;
       }
 
       @include sm {

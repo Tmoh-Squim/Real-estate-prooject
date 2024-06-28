@@ -85,8 +85,8 @@ function Chat() {
       );
       setMessages(response.data?.messages);
     } catch (error) {
-      console.log("erro", error);
-      toast.error("something went wrong");
+      return
+      //toast.error("something went wrong");
     }
   }
   function emitMessage() {

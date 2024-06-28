@@ -77,6 +77,7 @@ export const createEstate = async (req: Request, res: Response, next: NextFuncti
                 message: error.message
             });
         } else {
+            console.log('error',error)
             res.status(500).json({
                 success: false,
                 message: 'An unknown error occurred'
