@@ -42,6 +42,7 @@ function Card({ item,icon }) {
   return (
     <div className="card">
       <Link
+      to={`/estate/${item._id}`}
          onClick={()=>handleNavigate(item)}
         className="imageContainer"
       >
@@ -49,7 +50,7 @@ function Card({ item,icon }) {
       </Link>
       <div className="textContainer">
         <h2 className="title">
-          <Link  onClick={()=>handleNavigate(item)}>{item.title}</Link>
+          <Link to={`/estate/${item._id}`}  onClick={()=>handleNavigate(item)}>{item.title}</Link>
         </h2>
         <p className="address">
           <img src="/pin.png" alt="" />
