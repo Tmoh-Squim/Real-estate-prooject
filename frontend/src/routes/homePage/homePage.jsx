@@ -1,13 +1,41 @@
+import {useGSAP} from "@gsap/react"
+import gsap from "gsap";
 import SearchBar from "../../components/searchBar/SearchBar";
 import "./homePage.scss";
-
 function HomePage() {
+  useGSAP(()=>{
+    const tml = gsap.timeline();
+    tml.fromTo(".title",{
+      y:600,
+      opacity:0
+    },{
+      y:0,
+      opacity:1,
+      duration:1.5
+    })
+    tml.fromTo("#para",{
+      opacity:0
+    },{
+      opacity:1,
+      ease:"linear",
+      duration:1.5
+    })
+    gsap.fromTo(".search",{
+      y:-600,
+      opacity:0
+
+    },{
+      y:0,
+      duration:1.5,
+      opacity:1
+    })
+  },[])
   return (
     <div className="homePage">
       <div className="textContainer">
         <div className="wrapper">
           <h1 className="title">Find Real Estate & Get Your Dream Place</h1>
-          <p>
+          <p id="para">
             Future alike hill pull picture swim magic chain seed engineer nest
             outer raise bound easy poetry gain loud weigh me recognize farmer
             bare danger. actually put square leg vessels earth engine matter key
@@ -16,7 +44,9 @@ function HomePage() {
             natural attached part top grain your grade trade corn salmon trouble
             new bend most teacher range anybody every seat fifteen eventually .
           </p>
-          <SearchBar />
+         <div className="search">
+         <SearchBar />
+         </div>
           <div className="boxes">
             <div className="box">
               <h1>16+</h1>
