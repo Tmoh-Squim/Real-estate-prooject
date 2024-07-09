@@ -20,6 +20,7 @@ import { getConversations } from "./redux/category";
 import ProfileUpdatePage from "./routes/profileUpdatePage/profileUpdatePage";
 import Contact from "./routes/contact/Contact";
 import ProtectedRoute, { AgentRoute } from "./middlewares/ProtectedAuth";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   const { user } = useSelector((state) => state.user);
@@ -54,20 +55,21 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/estates"
-              element={
-                <ProtectedRoute>
-                  <ListPage />
-                </ProtectedRoute>
-              }
-            />
+            <Route path="*" element ={<PageNotFound />} />
             <Route path="/estate/:id" element={<SinglePage />} />
             <Route
               path="/profile"
               element={
                 <ProtectedRoute>
                   <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
+             <Route
+              path="/estates"
+              element={
+                <ProtectedRoute>
+                  <ListPage />
                 </ProtectedRoute>
               }
             />

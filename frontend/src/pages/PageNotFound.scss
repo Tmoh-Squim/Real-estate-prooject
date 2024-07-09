@@ -1,0 +1,19 @@
+.pagenotfound{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        font-size: 30px;
+        color: black;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        span{
+            font-size: 45px;
+            font-weight: 700;
+        }
+    }
+}

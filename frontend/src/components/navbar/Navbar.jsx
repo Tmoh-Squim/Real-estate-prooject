@@ -10,15 +10,15 @@ function Navbar() {
   return (
     <nav>
       <div className="left">
-        <a href="/" className="logo">
+        <Link to="/" className="logo">
           <img src="/logo.png" alt="" />
           <span>SquimEstate</span>
-        </a>
-        <a href="/">Home</a>
-        <a href="/estates">Estates</a>
-        <a href="/">About</a>
-        <a href="/contact-us">Contact</a>
-        <a href="/">Agents</a>
+        </Link>
+        <Link to="/">Home</Link>
+        <Link to="/estates">Estates</Link>
+        <Link to="/">About</Link>
+        <Link to="/contact-us">Contact</Link>
+        <Link to="/">Agents</Link>
       </div>
       <div className="right">
         {user?.user ? (
@@ -50,16 +50,16 @@ function Navbar() {
           />
         </div>
         <div className={open ? "menu active" : "menu"}>
-          <a href="/">Home</a>
-          <a href="/estates">Estates</a>
-          <a href="/about">About</a>
-          <a href="/contact-us">Contact</a>
-          <a href="/agents">Agents</a>
+          <Link to="/">Home</Link>
+          <Link to="/estates">Estates</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact-us">Contact</Link>
+          <Link to="/agents">Agents</Link>
           {
             user?.user ? (
-              <a href="/profile">Profile</a>
+              <Link to="/profile">Profile</Link>
             ):(
-              <a href="/login">Sign in</a>
+              <Link to="/login">Sign in</Link>
             )
           }
         </div>

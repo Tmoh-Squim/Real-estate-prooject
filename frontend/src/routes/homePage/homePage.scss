@@ -3,6 +3,7 @@
 .homePage {
   display: flex;
   height: 100%;
+  overflow-y: scroll;
 
   .textContainer {
     flex: 3;
@@ -28,7 +29,8 @@
       }
 
       .title {
-        font-size: 64px;
+        font-size: 60px;
+        margin-top: 22px;
 
         @include lg {
           font-size: 48px;
@@ -80,4 +82,8 @@
       }
     }
   }
+}
+
+.homePage::-webkit-scrollbar{
+  display: none;
 }
